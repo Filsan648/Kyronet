@@ -8,7 +8,7 @@ import Process from './components/Process';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Contact, { Footer } from './components/Contact';
-
+import Hero2 from './components/Hero2';
 function App() {
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -19,8 +19,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
-      <Hero />
+  
+      <Hero2 />
       <Stats />
       <Services />
       <Expertise />
