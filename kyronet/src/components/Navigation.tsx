@@ -1,137 +1,254 @@
-import { useState, useEffect } from 'react';
-import { Network, Menu, X } from 'lucide-react';
-
+import { useState, useEffect } from "react";
+import { Network, Menu, X } from "lucide-react";
+import KyronetIcone from "../asset/kyronet_icon.png"
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 80);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id) => {
     const element = document.getElementById(id);
+
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: "smooth",
+      });
+
       setMobileMenuOpen(false);
     }
   };
 
+  const links = [
+    {
+      label: "Services",
+      id: "services",
+    },
+    {
+      label: "Expertise",
+      id: "expertise",
+    },
+    {
+      label: "Processus",
+      id: "process",
+    },
+    {
+      label: "Témoignages",
+      id: "testimonials",
+    },
+    {
+      label: "FAQ",
+      id: "faq",
+    },
+  ];
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
-      }`}
+      className={`
+        fixed top-0 left-0 right-0 z-50
+        transition-all duration-700
+        ${
+          scrolled
+            ? "bg-white/80 backdrop-blur-2xl border-b border-black/10 py-4"
+            : "bg-black/20 backdrop-blur-md py-6"
+        }
+      `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+      {/* GLOW BACKGROUND */}
+      <div className="absolute inset-0 overflow-hidden -z-10">
+
+        <div
+          className={`
+            absolute top-[-120px] left-[10%]
+            w-[350px] h-[350px]
+            rounded-full blur-[120px]
+            transition-all duration-700
+            ${
+              scrolled
+                ? "bg-black/5"
+                : "bg-blue-500/20"
+            }
+          `}
+        />
+
+        <div
+          className={`
+            absolute top-[-100px] right-[10%]
+            w-[300px] h-[300px]
+            rounded-full blur-[120px]
+            transition-all duration-700
+            ${
+              scrolled
+                ? "bg-blue-500/5"
+                : "bg-white/10"
+            }
+          `}
+        />
+
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+
         <div className="flex items-center justify-between">
+
+          {/* LOGO */}
           <button
-            onClick={() => scrollToSection('home')}
-            className="flex items-center gap-2 text-slate-900 group"
+            onClick={() => scrollToSection("home")}
+            className="flex items-center gap-4 group"
           >
-            <div className="bg-blue-600 p-2 rounded-xl group-hover:scale-110 transition-transform">
-              <Network className="w-6 h-6 text-white" strokeWidth={2.5} />
+
+            <div
+              className={`
+                w-16 h-16 rounded-2xl
+                flex items-center justify-center
+                border transition-all duration-700
+                ${
+                  scrolled
+                    ? "bg-black text-white border-black/10"
+                    : "bg-white/10 text-white border-white/10"
+                }
+              `}
+            >
+              <img src={KyronetIcone} alt="Kyronet Icon" className="w-10 h-10"  />
             </div>
-            <span className="text-2xl font-bold tracking-tight">Kyronet</span>
+
+          
+
           </button>
 
-          <div className="hidden lg:flex items-center gap-8">
+          {/* DESKTOP MENU */}
+          <div className="hidden lg:flex items-center gap-10">
+
+            {links.map((link, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToSection(link.id)}
+                className={`
+                  text-lg relative font-extralight leading-[1.05] tracking-[-0.04em] transition-all duration-500
+                  hover:opacity-100
+                  ${
+                    scrolled
+                      ? "text-black/60 hover:text-black"
+                      : "text-white hover:text-white"
+                  }
+                `}
+              >
+                {link.label}
+              </button>
+            ))}
+
+            {/* CTA */}
             <button
-              onClick={() => scrollToSection('services')}
-              className="text-slate-600 hover:text-blue-600 font-medium transition-colors"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => scrollToSection('expertise')}
-              className="text-slate-600 hover:text-blue-600 font-medium transition-colors"
-            >
-              Expertise
-            </button>
-            <button
-              onClick={() => scrollToSection('process')}
-              className="text-slate-600 hover:text-blue-600 font-medium transition-colors"
-            >
-              Processus
-            </button>
-            <button
-              onClick={() => scrollToSection('testimonials')}
-              className="text-slate-600 hover:text-blue-600 font-medium transition-colors"
-            >
-              Témoignages
-            </button>
-            <button
-              onClick={() => scrollToSection('faq')}
-              className="text-slate-600 hover:text-blue-600 font-medium transition-colors"
-            >
-              FAQ
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition-all hover:shadow-lg hover:shadow-blue-600/30"
+              onClick={() => scrollToSection("contact")}
+              className={`
+                px-6 py-3 rounded-full
+                transition-all duration-700
+                ${
+                  scrolled
+                    ? "bg-black text-white"
+                    : "bg-white text-black"
+                }
+              `}
             >
               Nous contacter
             </button>
+
           </div>
 
+          {/* MOBILE BUTTON */}
           <button
-            className="lg:hidden text-slate-600 hover:text-blue-600"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className={`
+              lg:hidden w-11 h-11 rounded-xl
+              flex items-center justify-center
+              transition-all duration-700
+              ${
+                scrolled
+                  ? "bg-black text-white"
+                  : "bg-white/10 text-white border border-white/10"
+              }
+            `}
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5" />
             )}
           </button>
+
         </div>
 
-        {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 space-y-3 border-t border-slate-200 pt-4 bg-white rounded-2xl p-4 shadow-lg">
+        {/* MOBILE MENU */}
+        <div
+          className={`
+            lg:hidden overflow-hidden
+            transition-all duration-700
+            ${
+              mobileMenuOpen
+                ? "max-h-[500px] opacity-100 mt-6"
+                : "max-h-0 opacity-0"
+            }
+          `}
+        >
+
+          <div
+            className={`
+              rounded-3xl p-6 space-y-5
+              backdrop-blur-2xl border
+              transition-all duration-700
+              ${
+                scrolled
+                  ? "bg-white/90 border-black/10"
+                  : "bg-black/70 border-white/10"
+              }
+            `}
+          >
+
+            {links.map((link, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToSection(link.id)}
+                className={`
+                  block w-full text-left transition
+                  ${
+                    scrolled
+                      ? "text-black/70 hover:text-black"
+                      : "text-white/70 hover:text-white"
+                  }
+                `}
+              >
+                {link.label}
+              </button>
+            ))}
+
             <button
-              onClick={() => scrollToSection('services')}
-              className="block w-full text-left text-slate-600 hover:text-blue-600 font-medium py-2"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => scrollToSection('expertise')}
-              className="block w-full text-left text-slate-600 hover:text-blue-600 font-medium py-2"
-            >
-              Expertise
-            </button>
-            <button
-              onClick={() => scrollToSection('process')}
-              className="block w-full text-left text-slate-600 hover:text-blue-600 font-medium py-2"
-            >
-              Processus
-            </button>
-            <button
-              onClick={() => scrollToSection('testimonials')}
-              className="block w-full text-left text-slate-600 hover:text-blue-600 font-medium py-2"
-            >
-              Témoignages
-            </button>
-            <button
-              onClick={() => scrollToSection('faq')}
-              className="block w-full text-left text-slate-600 hover:text-blue-600 font-medium py-2"
-            >
-              FAQ
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="w-full bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold mt-2"
+              onClick={() => scrollToSection("contact")}
+              className={`
+                w-full py-3 rounded-2xl mt-4
+                transition-all duration-700
+                ${
+                  scrolled
+                    ? "bg-black text-white"
+                    : "bg-white text-black"
+                }
+              `}
             >
               Nous contacter
             </button>
+
           </div>
-        )}
+
+        </div>
+
       </div>
     </nav>
   );

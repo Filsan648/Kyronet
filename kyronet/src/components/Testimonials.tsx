@@ -1,116 +1,91 @@
-import { Star, Quote } from 'lucide-react';
+import React from "react";
 
 const testimonials = [
   {
-    name: 'Marie Dubois',
-    role: 'DSI, TechCorp France',
-    company: 'TechCorp',
-    content: 'Kyronet a transformé notre infrastructure IT. Leur expertise en virtualisation et leur approche sur mesure nous ont permis de réduire nos coûts de 40% tout en améliorant nos performances.',
-    rating: 5,
-    image: '👩‍💼'
+    name: "Sarah Johnson",
+    role: "CTO, Fintech Company",
+    text:
+      "Une expertise technique exceptionnelle. Leur approche a totalement transformé notre infrastructure IT.",
   },
   {
-    name: 'Pierre Martin',
-    role: 'CTO, InnovSystems',
-    company: 'InnovSystems',
-    content: 'L\'équipe de Kyronet a déployé une solution de sauvegarde immutable qui nous donne une tranquillité d\'esprit totale. Leur support 24/7 est exceptionnel.',
-    rating: 5,
-    image: '👨‍💼'
+    name: "Michael Brown",
+    role: "IT Director, Logistics",
+    text:
+      "Fiabilité, performance et sécurité. L’équipe a livré une architecture robuste et scalable.",
   },
   {
-    name: 'Sophie Laurent',
-    role: 'Directrice IT, SecureBank',
-    company: 'SecureBank',
-    content: 'La migration vers notre nouvelle infrastructure réseau s\'est faite sans aucune interruption de service. Le professionnalisme de Kyronet est remarquable.',
-    rating: 5,
-    image: '👩‍💻'
+    name: "David Martin",
+    role: "CEO, SaaS Platform",
+    text:
+      "Un vrai partenaire stratégique. Ils comprennent parfaitement les enjeux business et techniques.",
   },
-  {
-    name: 'Jean Rousseau',
-    role: 'CEO, CloudFirst SAS',
-    company: 'CloudFirst',
-    content: 'Kyronet ne se contente pas d\'installer des serveurs, ils développent des solutions d\'automatisation qui nous font gagner un temps précieux. Leur maîtrise de Python est impressionnante.',
-    rating: 5,
-    image: '👨‍💻'
-  },
-  {
-    name: 'Isabelle Moreau',
-    role: 'Responsable Infrastructure, DataCorp',
-    company: 'DataCorp',
-    content: 'Depuis que Kyronet gère notre supervision, nous anticipons les problèmes avant qu\'ils n\'impactent nos utilisateurs. La disponibilité de 99.98% n\'est pas un mythe.',
-    rating: 5,
-    image: '👩'
-  },
-  {
-    name: 'Thomas Bernard',
-    role: 'Directeur Technique, MediaPlus',
-    company: 'MediaPlus',
-    content: 'L\'approche hybride cloud de Kyronet nous a permis d\'optimiser nos coûts tout en gardant le contrôle sur nos données sensibles. C\'est exactement ce dont nous avions besoin.',
-    rating: 5,
-    image: '👨'
-  }
 ];
 
-export default function Testimonials() {
+function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-            Témoignages
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
-            Ils nous font confiance
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Plus de 120 entreprises ont choisi Kyronet pour leur infrastructure IT
-          </p>
-        </div>
+    <section className="relative py-32 px-6 bg-white text-black overflow-hidden">
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all group"
-            >
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
+      {/* 🌫️ AWWARDS BACKGROUND CIRCLES */}
+      <div className="absolute inset-0 -z-10">
 
-              <Quote className="w-10 h-10 text-blue-600/20 mb-4" />
+        <div className="absolute top-[-120px] left-[-120px] w-[500px] h-[500px] bg-black/5 rounded-full blur-[140px]"></div>
 
-              <p className="text-slate-700 mb-6 leading-relaxed">
-                &quot;{testimonial.content}&quot;
-              </p>
+        <div className="absolute bottom-[-150px] right-[-150px] w-[600px] h-[600px] bg-black/5 rounded-full blur-[160px]"></div>
 
-              <div className="flex items-center gap-4 pt-4 border-t border-slate-100">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center text-2xl">
-                  {testimonial.image}
-                </div>
-                <div>
-                  <div className="font-bold text-slate-900">{testimonial.name}</div>
-                  <div className="text-sm text-slate-600">{testimonial.role}</div>
-                  <div className="text-xs text-blue-600 font-semibold">{testimonial.company}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-black/5 rounded-full blur-[180px]"></div>
 
-        <div className="mt-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl p-12 text-center text-white">
-          <h3 className="text-3xl font-bold mb-4">
-            Rejoignez nos clients satisfaits
-          </h3>
-          <p className="text-xl text-blue-100 mb-8">
-            Découvrez comment nous pouvons transformer votre infrastructure IT
-          </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all">
-            Demander une démo
-          </button>
-        </div>
       </div>
+
+      {/* HEADER */}
+      <div className="max-w-4xl mx-auto text-center mb-24 relative">
+        <span className="uppercase tracking-[0.35em] text-xs text-black/50">
+          Testimonials
+        </span>
+
+        <h2 className="mt-6 text-6xl md:text-7xl font-extralight leading-[1.05] tracking-[-0.04em]">
+          Ce que disent
+          <br />
+          <span className="font-normal">nos clients</span>
+        </h2>
+
+        <p className="mt-8 text-black/60 text-lg">
+          Des entreprises qui nous font confiance pour leurs infrastructures critiques.
+        </p>
+      </div>
+
+      {/* GRID TESTIMONIALS */}
+      <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 relative">
+
+        {testimonials.map((t, i) => (
+          <div key={i} className="relative group">
+
+            {/* quote mark */}
+            <div className="text-6xl text-black/10 absolute -top-6 left-0 group-hover:text-black/20 transition">
+              “
+            </div>
+
+            <p className="text-lg text-black/70 leading-relaxed mb-8">
+              {t.text}
+            </p>
+
+            <div className="space-y-1">
+              <h4 className="text-lg font-light">{t.name}</h4>
+              <span className="text-sm text-black/40">{t.role}</span>
+            </div>
+
+            {/* underline hover */}
+            <div className="w-0 group-hover:w-16 h-[1px] bg-black/30 transition-all duration-500 mt-4"></div>
+
+          </div>
+        ))}
+
+      </div>
+
+      {/* floating center circle accent */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-24 h-24 bg-black/10 rounded-full blur-2xl"></div>
+
     </section>
   );
 }
+
+export default Testimonials;

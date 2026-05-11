@@ -4,87 +4,150 @@ const steps = [
   {
     icon: Search,
     title: 'Audit & Analyse',
-    description: 'Nous évaluons votre infrastructure existante, identifions les points d\'amélioration et définissons vos besoins.',
-    duration: '1-2 semaines'
+    description:
+      "Nous évaluons votre infrastructure existante, identifions les points d'amélioration et définissons vos besoins.",
+    duration: '1-2 semaines',
   },
   {
     icon: FileText,
     title: 'Conception',
-    description: 'Notre équipe conçoit une architecture sur mesure, optimisée pour vos processus et vos objectifs métier.',
-    duration: '2-3 semaines'
+    description:
+      'Notre équipe conçoit une architecture sur mesure, optimisée pour vos processus et vos objectifs métier.',
+    duration: '2-3 semaines',
   },
   {
     icon: Cog,
     title: 'Déploiement',
-    description: 'Mise en œuvre progressive de la solution avec tests rigoureux et formation de vos équipes.',
-    duration: '4-8 semaines'
+    description:
+      'Mise en œuvre progressive de la solution avec tests rigoureux et formation de vos équipes.',
+    duration: '4-8 semaines',
   },
   {
     icon: Rocket,
     title: 'Support continu',
-    description: 'Supervision 24/7, maintenance préventive et optimisation continue de votre infrastructure.',
-    duration: 'Illimité'
-  }
+    description:
+      'Supervision 24/7, maintenance préventive et optimisation continue de votre infrastructure.',
+    duration: 'Illimité',
+  },
 ];
 
 export default function Process() {
   return (
-    <section id="process" className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-white/[0.02] -z-10"></div>
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl"></div>
+    <section
+      id="process"
+      className="py-32 mx-8 rounded-[40px] bg-gradient-to-br from-black/80 via-slate-900 to-black text-white relative overflow-hidden"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 bg-grid-white/[0.02]"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16">
-          <div className="inline-block bg-blue-600/20 text-blue-300 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-            Notre Méthodologie
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-            Un processus éprouvé pour votre réussite
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[180px]"></div>
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[180px]"></div>
+
+      <div className="relative max-w-7xl mx-auto px-6">
+
+        {/* Heading */}
+        <div className="text-center mb-28">
+       
+
+          <h2 className="mt-6 text-5xl md:text-7xl font-extralight tracking-[-0.05em] leading-none">
+            Une approche pensée pour durer
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            De l&apos;analyse initiale au support continu, nous vous accompagnons à chaque étape
+
+          <p className="mt-8 text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+            De l’analyse stratégique au suivi continu, chaque étape est conçue
+            pour créer une infrastructure performante, fiable et évolutive.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className="relative"
-            >
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all group">
-                <div className="absolute -top-4 -left-4 bg-gradient-to-br from-blue-600 to-cyan-600 w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-xl shadow-xl">
-                  {index + 1}
+        {/* Timeline */}
+        <div className="relative">
+
+          {/* Vertical line */}
+          <div className="absolute left-1/2 top-0 h-full w-px bg-white/10 hidden lg:block"></div>
+
+          <div className="space-y-28">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className={`relative grid lg:grid-cols-2 gap-16 items-center ${
+                  index % 2 !== 0 ? 'lg:text-right' : ''
+                }`}
+              >
+
+                {/* Content */}
+                <div
+                  className={`space-y-6 ${
+                    index % 2 !== 0
+                      ? 'lg:order-2 lg:pl-20'
+                      : 'lg:pr-20'
+                  }`}
+                >
+                  <div className="flex items-center gap-4 justify-center lg:justify-start">
+                    <span className="text-white/20 text-6xl font-extralight">
+                      0{index + 1}
+                    </span>
+
+                    <div className="w-14 h-14 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl flex items-center justify-center">
+                      <step.icon className="w-6 h-6 text-cyan-400" />
+                    </div>
+                  </div>
+
+                  <h3 className="text-4xl font-light tracking-tight">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-slate-400 text-lg leading-relaxed">
+                    {step.description}
+                  </p>
+
+                  <div className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-cyan-300">
+                    <div className="w-10 h-px bg-cyan-400"></div>
+                    {step.duration}
+                  </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-blue-600 to-cyan-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <step.icon className="w-8 h-8" strokeWidth={2} />
+                {/* Visual side */}
+                <div
+                  className={`relative hidden lg:flex ${
+                    index % 2 !== 0
+                      ? 'justify-start'
+                      : 'justify-end'
+                  }`}
+                >
+                  <div className="relative w-72 h-72 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-2xl flex items-center justify-center">
+
+                    <div className="absolute inset-6 rounded-full border border-white/5"></div>
+
+                    <div className="absolute inset-12 rounded-full border border-cyan-400/10"></div>
+
+                    <step.icon
+                      className="w-20 h-20 text-white/80"
+                      strokeWidth={1.2}
+                    />
+
+                    <div className="absolute w-full h-full rounded-full border border-cyan-400/20 animate-pulse"></div>
+                  </div>
                 </div>
 
-                <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                <p className="text-slate-300 mb-4 leading-relaxed">{step.description}</p>
-                <div className="inline-block bg-amber-400/20 text-amber-300 px-3 py-1 rounded-full text-sm font-semibold">
-                  {step.duration}
+                {/* Center Dot */}
+                <div className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-5 h-5 rounded-full bg-cyan-400 shadow-[0_0_40px_rgba(34,211,238,0.8)]"></div>
                 </div>
+
               </div>
-
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-600 to-transparent"></div>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 inline-block">
-            <p className="text-lg mb-4">
-              Besoin d&apos;un accompagnement sur mesure ?
-            </p>
-            <button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl hover:shadow-blue-600/50 transition-all">
+        {/* Bottom CTA */}
+        <div className="mt-32 text-center">
+          <button className="group relative overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl px-10 py-5 rounded-full text-white text-sm uppercase tracking-[0.25em] hover:border-cyan-400/40 transition-all duration-500">
+            <span className="relative z-10">
               Planifier un audit gratuit
-            </button>
-          </div>
+            </span>
+
+            <div className="absolute inset-0 bg-cyan-400/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+          </button>
         </div>
       </div>
     </section>

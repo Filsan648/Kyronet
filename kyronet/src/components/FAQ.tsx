@@ -1,98 +1,118 @@
-import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: 'Quels sont vos délais d\'intervention en cas d\'incident ?',
-    answer: 'Nous garantissons une prise en charge immédiate 24/7 avec un temps de réponse de moins de 15 minutes pour les incidents critiques. Notre équipe de supervision détecte et résout la majorité des problèmes de manière proactive avant qu\'ils n\'impactent vos utilisateurs.'
+    question: "Quels sont vos délais d'intervention ?",
+    answer:
+      "Nous assurons une prise en charge immédiate 24/7 avec un temps de réponse inférieur à 15 minutes pour les incidents critiques.",
   },
   {
-    question: 'Proposez-vous un audit gratuit de notre infrastructure ?',
-    answer: 'Oui, nous offrons un audit gratuit et sans engagement de votre infrastructure actuelle. Cet audit comprend une analyse complète de votre réseau, de vos serveurs, de votre stratégie de sauvegarde et de votre sécurité. Nous vous fournissons ensuite un rapport détaillé avec nos recommandations.'
+    question: "Proposez-vous un audit gratuit ?",
+    answer:
+      "Oui, nous réalisons un audit complet et gratuit de votre infrastructure avec un rapport détaillé et des recommandations concrètes.",
   },
   {
-    question: 'Comment assurez-vous la sécurité de nos données ?',
-    answer: 'Nous mettons en place une approche de sécurité multi-couches : firewalls nouvelle génération, segmentation réseau Zero Trust, chiffrement des données, sauvegardes immutables, et surveillance continue. Toutes nos solutions respectent les normes RGPD et les meilleures pratiques de cybersécurité.'
+    question: "Comment garantissez-vous la sécurité ?",
+    answer:
+      "Nous utilisons une architecture Zero Trust, des firewalls avancés, du chiffrement et une surveillance continue de tous les systèmes.",
   },
   {
-    question: 'Travaillez-vous avec toutes les technologies ou avez-vous des spécialités ?',
-    answer: 'Nous sommes experts en VMware, Hyper-V, Proxmox, Kubernetes, ainsi qu\'en solutions réseau Cisco, Fortinet, et Ubiquiti. Nous maîtrisons également les plateformes cloud AWS, Azure et OVH. Notre équipe de développement travaille principalement en Python, PHP et Go pour l\'automatisation et les applications sur mesure.'
+    question: "Travaillez-vous avec quelles technologies ?",
+    answer:
+      "VMware, Kubernetes, Cisco, Fortinet, AWS, Azure, ainsi que des solutions sur mesure en Python, PHP et Go.",
   },
   {
-    question: 'Quelle est votre politique de sauvegarde ?',
-    answer: 'Nous appliquons la règle 3-2-1 : 3 copies de vos données, sur 2 supports différents, dont 1 hors site. Nous utilisons des solutions de backup immutable pour protéger contre les ransomwares. Des tests de restauration sont effectués automatiquement chaque mois pour garantir la récupérabilité de vos données.'
+    question: "Vos sauvegardes sont-elles sécurisées ?",
+    answer:
+      "Oui, nous appliquons la règle 3-2-1 avec des backups immutables et des tests de restauration réguliers.",
   },
-  {
-    question: 'Proposez-vous des formations pour nos équipes ?',
-    answer: 'Absolument. Nous incluons systématiquement des sessions de formation lors du déploiement de nouvelles solutions. Nous proposons également des formations continues sur l\'utilisation des outils, les bonnes pratiques de sécurité, et la gestion quotidienne de votre infrastructure.'
-  },
-  {
-    question: 'Quels sont vos modèles de tarification ?',
-    answer: 'Nous proposons plusieurs modèles adaptés à vos besoins : forfait mensuel tout inclus, facturation à l\'usage, ou mode projet pour les déploiements ponctuels. Chaque solution est personnalisée selon la taille de votre infrastructure et le niveau de service souhaité. Contactez-nous pour un devis sur mesure.'
-  },
-  {
-    question: 'Puis-je garder mon infrastructure actuelle et la faire évoluer progressivement ?',
-    answer: 'Oui, nous favorisons une approche progressive et pragmatique. Nous pouvons intégrer et optimiser votre infrastructure existante, puis la faire évoluer par étapes selon vos priorités et votre budget. Notre objectif est de minimiser les disruptions tout en maximisant les bénéfices.'
-  }
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section id="faq" className="py-24 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-            FAQ
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
-            Questions fréquentes
-          </h2>
-          <p className="text-xl text-slate-600">
-            Tout ce que vous devez savoir sur nos services
-          </p>
-        </div>
+    <section className="relative my-10 py-10 px-6 bg-lime-300 mx-10 rounded-3xl text-black overflow-hidden">
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-slate-200 rounded-2xl overflow-hidden hover:border-blue-300 transition-colors"
+      {/* 🌫️ AWWARDS CIRCLES BACKGROUND */}
+      <div className="absolute inset-0 -z-10">
+
+        <div className="absolute top-[-120px] left-[-120px] w-[500px] h-[500px] bg-black/5 rounded-full blur-[140px]" />
+        <div className="absolute bottom-[-120px] right-[-120px] w-[600px] h-[600px] bg-black/5 rounded-full blur-[160px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-black/5 rounded-full blur-[180px]" />
+
+      </div>
+
+      {/* HEADER */}
+      <div className="max-w-4xl mx-auto text-center mb-24">
+        <span className="uppercase tracking-[0.35em] text-xs text-black/50">
+          FAQ
+        </span>
+
+        <h2 className="mt-6 text-6xl md:text-7xl font-extralight leading-[1.05] tracking-[-0.04em]">
+          Questions
+          <br />
+          <span className="font-normal">fréquentes</span>
+        </h2>
+
+        <p className="mt-8 text-black/60 text-lg">
+          Tout ce que vous devez savoir sur nos services IT.
+        </p>
+      </div>
+
+      {/* ACCORDION */}
+      <div className="max-w-3xl mx-auto space-y-6">
+
+        {faqs.map((faq, index) => (
+          <div
+            key={index}
+            className="border-b border-black/10 pb-6 group"
+          >
+
+            {/* question */}
+            <button
+              onClick={() =>
+                setOpenIndex(openIndex === index ? null : index)
+              }
+              className="w-full flex justify-between items-center text-left"
             >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors"
-              >
-                <span className="font-semibold text-lg text-slate-900 pr-8">
-                  {faq.question}
-                </span>
-                <ChevronDown
-                  className={`w-6 h-6 text-blue-600 flex-shrink-0 transition-transform ${
-                    openIndex === index ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-              {openIndex === index && (
-                <div className="px-6 pb-6">
-                  <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+              <h3 className="text-xl md:text-2xl font-light leading-snug group-hover:opacity-70 transition">
+                {faq.question}
+              </h3>
 
-        <div className="mt-16 bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 text-center text-white">
-          <h3 className="text-2xl font-bold mb-3">
-            Vous avez d&apos;autres questions ?
-          </h3>
-          <p className="text-slate-300 mb-6">
-            Notre équipe est disponible pour répondre à toutes vos interrogations
-          </p>
-          <button className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-all">
-            Nous contacter
-          </button>
-        </div>
+              <ChevronDown
+                className={`w-5 h-5 transition-transform duration-300 ${
+                  openIndex === index ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {/* answer */}
+            <div
+              className={`overflow-hidden transition-all duration-500 ${
+                openIndex === index
+                  ? "max-h-40 opacity-100 mt-4"
+                  : "max-h-0 opacity-0"
+              }`}
+            >
+              <p className="text-black/60 text-base leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* CTA */}
+      <div className="max-w-3xl mx-auto mt-24 text-center">
+        <p className="text-black/60 mb-6">
+          Vous avez une question spécifique ?
+        </p>
+
+        <button className="px-8 py-4 rounded-full bg-black text-white hover:scale-105 transition">
+          Nous contacter
+        </button>
       </div>
     </section>
   );

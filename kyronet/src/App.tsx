@@ -7,8 +7,11 @@ import Expertise from './components/Expertise';
 import Process from './components/Process';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
-import Contact, { Footer } from './components/Contact';
+import Contact from './components/Contact';
+import Partenaire from './components/partenaire';
 import Hero2 from './components/Hero2';
+import Project from './components/project';
+import AboutUs from './components/about';
 function App() {
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -19,16 +22,17 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-  
-      <Hero2 />
-      <Stats />
+      <Navigation />
+      <Hero />
+      <Partenaire />
+      <AboutUs />
       <Services />
-      <Expertise />
+       <Project />
       <Process />
       <Testimonials />
       <FAQ />
       <Contact />
-      <Footer />
+  
     </div>
   );
 }
