@@ -1,15 +1,12 @@
 import { useEffect } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import Stats from './components/Stats';
 import Services from './components/Services';
-import Expertise from './components/Expertise';
 import Process from './components/Process';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Partenaire from './components/partenaire';
-import Hero2 from './components/Hero2';
 import Project from './components/project';
 import AboutUs from './components/about';
 function App() {

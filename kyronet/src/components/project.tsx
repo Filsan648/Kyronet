@@ -46,7 +46,7 @@ function Project() {
   };
 
   return (
-    <section className="relative py-32 bg-white text-black overflow-hidden">
+    <section id="projects" className="relative py-32 bg-white text-black overflow-hidden">
 
       {/* 🔥 HERO STYLE CIRCLES BACKGROUND */}
       <div className="absolute inset-0 -z-10">

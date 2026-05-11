@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Network, Menu, X } from "lucide-react";
+import {  Menu, X } from "lucide-react";
 import KyronetIcone from "../asset/kyronet_icon.png"
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,7 +15,7 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
 
     if (element) {
@@ -28,14 +28,19 @@ export default function Navigation() {
   };
 
   const links = [
+       {
+      label: "À propos de nous",
+      id: "about",
+    },
     {
       label: "Services",
       id: "services",
     },
-    {
-      label: "Expertise",
-      id: "expertise",
+     {
+      label: "Projets",
+      id: "projects",
     },
+ 
     {
       label: "Processus",
       id: "process",
@@ -120,9 +125,6 @@ export default function Navigation() {
             >
               <img src={KyronetIcone} alt="Kyronet Icon" className="w-10 h-10"  />
             </div>
-
-          
-
           </button>
 
           {/* DESKTOP MENU */}
@@ -161,7 +163,6 @@ export default function Navigation() {
             >
               Nous contacter
             </button>
-
           </div>
 
           {/* MOBILE BUTTON */}

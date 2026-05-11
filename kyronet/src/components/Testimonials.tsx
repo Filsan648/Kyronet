@@ -1,4 +1,4 @@
-import React from "react";
+
 
 const testimonials = [
   {
@@ -23,7 +23,7 @@ const testimonials = [
 
 function Testimonials() {
   return (
-    <section className="relative py-32 px-6 bg-white text-black overflow-hidden">
+    <section id="testimonials" className="relative py-32 px-6 bg-white text-black overflow-hidden">
 
       {/* 🌫️ AWWARDS BACKGROUND CIRCLES */}
       <div className="absolute inset-0 -z-10">

@@ -1,4 +1,4 @@
-import { TrendingUp, Users, Award, Zap } from 'lucide-react';
+
 
 const stats = [
   {

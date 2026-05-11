@@ -30,10 +30,10 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative my-10 py-10 px-6 bg-lime-300 mx-10 rounded-3xl text-black overflow-hidden">
+    <section id="faq" className="relative my-10 py-10 px-6 bg-lime-300 mx-10 rounded-3xl text-black overflow-hidden">
 
       {/* 🌫️ AWWARDS CIRCLES BACKGROUND */}
       <div className="absolute inset-0 -z-10">

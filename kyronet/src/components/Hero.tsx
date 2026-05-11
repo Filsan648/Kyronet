@@ -1,6 +1,4 @@
-import React from 'react';
-// Assure-toi que le chemin vers ta vidéo est correct
-import bgback from '../asset/14520076_1920_1080_24fps.mp4'; 
+import bgback from '../asset/HeroVideo.mp4'; 
 import Button from '../utils/Button';
 
 export default function Hero() {

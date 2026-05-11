@@ -1,5 +1,5 @@
 import {
-  Network,
+
   Mail,
   Phone,
   MapPin,

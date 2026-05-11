@@ -1,6 +1,6 @@
-import React from "react";
+
 import { Network, Server, Code, Database, ChevronRight } from "lucide-react";
-import KyroneIncon from "../asset/kyronet_icon.png"
+
 const services = [
   {
     icon: Network,
@@ -38,14 +38,14 @@ const services = [
 
 export default function ServicesBento() {
   return (
-    <section className="my-24 py-5  mx-10 rounded-3xl bg-lime-300 ">
+    <section id="services" className="my-24 py-5  mx-10 rounded-3xl bg-lime-300 ">
       <div className="max-w-6xl mx-auto">
         
         {/* Header - Aligné à gauche comme les designs SaaS */}
 
-<div className="text-center mb-12">
+      <div className="text-center mb-12">
        
-<span className="uppercase tracking-[0.35em] text-xs text-black/50">
+           <span className="uppercase tracking-[0.35em] text-xs text-black/50">
           Nos services
         </span>
           <h2 className="mt-6 text-5xl md:text-7xl font-extralight tracking-[-0.05em] leading-none">

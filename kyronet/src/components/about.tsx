@@ -87,9 +87,9 @@ function AboutUs() {
                   Infrastructure
                 </p>
                 <h3 className="text-2xl font-light mt-2 tracking-wide">
-                  Engineered
+                 Conçue avec
                   <br />
-                  Precision
+                  précision
                 </h3>
               </div>
             </div>

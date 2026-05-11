@@ -47,11 +47,16 @@ export default function Process() {
 
         {/* Heading */}
         <div className="text-center mb-28">
+           <span className="uppercase tracking-[0.35em] text-xs text-white/50">
+          Notre approche
+        </span>
        
-
-          <h2 className="mt-6 text-5xl md:text-7xl font-extralight tracking-[-0.05em] leading-none">
-            Une approche pensée pour durer
+ <h2 className="mt-6 text-5xl md:text-7xl font-extralight tracking-[-0.05em] leading-none">
+            Une approche pensée pour
+          <br />
+          <span className="font-normal">durer</span>
           </h2>
+         
 
           <p className="mt-8 text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
             De l’analyse stratégique au suivi continu, chaque étape est conçue
@@ -139,16 +144,7 @@ export default function Process() {
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-32 text-center">
-          <button className="group relative overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl px-10 py-5 rounded-full text-white text-sm uppercase tracking-[0.25em] hover:border-cyan-400/40 transition-all duration-500">
-            <span className="relative z-10">
-              Planifier un audit gratuit
-            </span>
-
-            <div className="absolute inset-0 bg-cyan-400/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-          </button>
-        </div>
+       
       </div>
     </section>
   );
