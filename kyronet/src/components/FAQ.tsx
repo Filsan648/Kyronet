@@ -109,10 +109,11 @@ export default function FAQ() {
         <p className="text-black/60 mb-6">
           Vous avez une question spécifique ?
         </p>
-
+<a href="#contact">
         <button className="px-8 py-4 rounded-full bg-black text-white hover:scale-105 transition">
           Nous contacter
         </button>
+</a>
       </div>
     </section>
   );
